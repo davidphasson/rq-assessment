@@ -1,0 +1,28 @@
+<% title "Survey" %>
+
+<p>
+  <strong>First Name:</strong>
+  <%=h @survey.first_name %>
+</p>
+<p>
+  <strong>Last Name:</strong>
+  <%=h @survey.last_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%=h @survey.email %>
+</p>
+<p>
+  <strong>Total Score:</strong>
+  <%=h @survey.total_score %>
+</p>
+<p>
+  <strong>Rq Score:</strong>
+  <%=h @survey.rq_score %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_survey_path(@survey) %> |
+  <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", surveys_path %>
+</p>

@@ -1,0 +1,20 @@
+<% form_for @question do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.text_field :category_id %>
+  </p>
+  <p>
+    <%= f.label :lower_title %><br />
+    <%= f.text_field :lower_title %>
+  </p>
+  <p>
+    <%= f.label :upper_title %><br />
+    <%= f.text_field :upper_title %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

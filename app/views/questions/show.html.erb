@@ -1,0 +1,24 @@
+<% title "Question" %>
+
+<p>
+  <strong>Text:</strong>
+  <%=h @question.text %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%=h @question.category_id %>
+</p>
+<p>
+  <strong>Lower Title:</strong>
+  <%=h @question.lower_title %>
+</p>
+<p>
+  <strong>Upper Title:</strong>
+  <%=h @question.upper_title %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_question_path(@question) %> |
+  <%= link_to "Destroy", @question, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", questions_path %>
+</p>
