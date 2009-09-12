@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :categories
+
+  map.resources :questions
+
+  map.resources :surveys
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
