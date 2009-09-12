@@ -35,3 +35,85 @@ Migrating to CreateResponses (20090912221824)
   [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("questions")[0m
   [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("responses")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("surveys")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-09-12 15:44:37) [GET]
+
+ActionController::RoutingError (No route matches "/" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2009-09-12 15:44:46) [GET]
+  [4;36;1mCategory Load (0.5ms)[0m   [0;1mSELECT * FROM "categories" [0m
+Rendering categories/index
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0x2589358>) on line #1 of app/views/categories/index.html.erb:
+1: <% title "Categories" %>
+2: 
+3: <table>
+4:   <tr>
+
+    app/views/categories/index.html.erb:1
+
+Rendered rescues/_trace (41.3ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing SurveysController#index (for 127.0.0.1 at 2009-09-12 15:45:02) [GET]
+  [4;35;1mSurvey Load (0.4ms)[0m   [0mSELECT * FROM "surveys" [0m
+Rendering surveys/index
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0x2423964>) on line #1 of app/views/surveys/index.html.erb:
+1: <% title "Surveys" %>
+2: 
+3: <table>
+4:   <tr>
+
+    app/views/surveys/index.html.erb:1
+
+Rendered rescues/_trace (104.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSurveys (20090912221030)
+Migrating to CreateCategories (20090912221811)
+Migrating to CreateQuestions (20090912221818)
+Migrating to CreateResponses (20090912221824)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("categories")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("questions")[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("responses")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("surveys")[0m
+
+
+Processing SurveysController#index (for 127.0.0.1 at 2009-09-12 15:45:24) [GET]
+  [4;36;1mSurvey Load (0.5ms)[0m   [0;1mSELECT * FROM "surveys" [0m
+Rendering surveys/index
+
+ActionView::TemplateError (undefined method `title' for #<ActionView::Base:0x25ebb98>) on line #1 of app/views/surveys/index.html.erb:
+1: <% title "Surveys" %>
+2: 
+3: <table>
+4:   <tr>
+
+    app/views/surveys/index.html.erb:1
+
+Rendered rescues/_trace (40.1ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (internal_server_error)
