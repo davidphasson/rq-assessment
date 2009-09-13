@@ -1,11 +1,8 @@
 <% title "Survey" %>
 
 <p>
-  <strong>First Name:</strong>
-  <%=h @survey.first_name %>
-</p>
-<p>
-  <strong>Last Name:</strong>
+  <strong>Name:</strong>
+  <%=h @survey.first_name %> 
   <%=h @survey.last_name %>
 </p>
 <p>
@@ -13,13 +10,37 @@
   <%=h @survey.email %>
 </p>
 <p>
-  <strong>Total Score:</strong>
-  <%=h @survey.total_score %>
+  <strong>Normalized Score:</strong>
+  <%=h @survey.normalized_score %>
+  <%# todo: helper functions / or use the class out there %>
 </p>
+
+<div class="chart">
+  <img src="http://chart.apis.google.com/chart?chs=220x115&chf=bg,s,272830&chco=771111,444411,117711,114444,111177&cht=gom&chl=You&chd=t:<%=h @survey.normalized_score %>" border=0 />
+</div>
+
 <p>
-  <strong>Rq Score:</strong>
-  <%=h @survey.rq_score %>
+  <strong>Standardized RQ:</strong>
+  <%=h @survey.std_rq %>
 </p>
+
+<%
+  # scatter_str = "";
+  # scatter_points = @survey.scatter
+
+  # scatter.each_index |x|
+    # scatter_str .= "#{x},#{scatter_points[x]}"
+  # end
+%>
+
+<!-- 
+<div class="chart">
+  <img src="http://chart.apis.google.com/chart?chs=220x115&chf=bg,s,272830&chco=771111,444411,117711,114444,111177&cht=gom&chl=You&chd=t:<%=h @survey.normalized_score %>" border=0 />
+</div>
+-->
+
+
+
 
 <p>
   <%= link_to "Edit", edit_survey_path(@survey) %> |
