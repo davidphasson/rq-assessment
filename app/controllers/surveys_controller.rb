@@ -20,7 +20,8 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(params[:survey])
     if @survey.save
-      flash[:notice] = "Successfully created survey."
+      # This is showing up for a person that just took it, silly
+      # flash[:notice] = "Successfully created survey."
       redirect_to @survey
     else
       render :action => 'new'
