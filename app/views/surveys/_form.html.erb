@@ -21,4 +21,8 @@
     <%= f.text_field :rq_score %>
   </p>
   <p><%= f.submit "Submit" %></p>
+
+  <% f.fields_for :response do |r| %>
+  <% end %>
+
 <% end %>
