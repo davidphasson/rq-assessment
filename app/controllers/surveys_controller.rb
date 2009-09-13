@@ -9,6 +9,9 @@ class SurveysController < ApplicationController
   
   def new
     @survey = Survey.new
+    Question.all.each do |q|
+      @survey.responses.build(:question_id => q.id)
+    end
   end
   
   def create
