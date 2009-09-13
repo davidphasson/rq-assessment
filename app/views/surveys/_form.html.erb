@@ -20,9 +20,18 @@
     <%= f.label :rq_score %><br />
     <%= f.text_field :rq_score %>
   </p>
-  <p><%= f.submit "Submit" %></p>
+
+  <%# todo: paginate %>
 
   <% f.fields_for :response do |r| %>
+    <%# Assemble response form from properties of the associated question %>
+  	<%= r.label :value r.object.question.text %><br />
+	<%# todo: jQueryUI slider %>
+	<%= r.select :value, 1..10 %>
+	<%= r.hidden_field :question_id, :value => r.object.question.id %>
+	<br /><br />
   <% end %>
+
+  <p><%= f.submit "Submit" %></p>
 
 <% end %>
