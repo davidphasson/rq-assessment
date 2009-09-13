@@ -23,7 +23,7 @@
 
   <%# todo: paginate %>
 
-  <% f.fields_for :response do |r| %>
+  <% f.fields_for :responses do |r| %>
     <%# Assemble response form from properties of the associated question %>
   	<%= r.label :value r.object.question.text %><br />
 	<%# todo: jQueryUI slider %>
