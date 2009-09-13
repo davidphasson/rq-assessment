@@ -1,7 +1,8 @@
 body {
-  background-color: #4B7399;
+  background-color: #333333;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
+  color: #a1a1a1;
 }
 
 a img {
@@ -9,7 +10,7 @@ a img {
 }
 
 a {
-  color: #0000FF;
+  color: #cd9934;
 }
 
 .clear {
@@ -21,9 +22,9 @@ a {
 #container {
   width: 75%;
   margin: 0 auto;
-  background-color: #FFF;
+  background-color: #343434;
   padding: 20px 40px;
-  border: solid 1px black;
+  border: solid 1px #a1a1a1;
   margin-top: 20px;
 }
 
