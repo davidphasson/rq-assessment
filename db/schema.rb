@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20090912221824) do
   create_table "responses", :force => true do |t|
     t.integer  "survey_id"
     t.integer  "question_id"
-    t.integer  "value"
+    t.integer  "value",       :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

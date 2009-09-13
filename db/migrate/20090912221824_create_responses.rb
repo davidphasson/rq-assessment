@@ -4,7 +4,7 @@ class CreateResponses < ActiveRecord::Migration
 # Many to many
       t.integer :survey_id
       t.integer :question_id
-      t.integer :value
+      t.integer :value, :default => 0
 
       t.timestamps
     end
