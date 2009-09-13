@@ -358,3 +358,13 @@ namespace :db do
   	end
   end
 end
+
+
+namespace :db do
+  desc "Drop all questions"
+  task :drop_questions => :environment do
+    Question.all.each do |q|
+      q.destroy
+    end
+  end
+end

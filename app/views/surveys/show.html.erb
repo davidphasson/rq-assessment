@@ -1,4 +1,6 @@
-<% title "Survey" %>
+<% title "RI Assessment Results" %>
+
+<hr />
 
 <p>
   <strong>Name:</strong>
@@ -9,20 +11,41 @@
   <strong>Email:</strong>
   <%=h @survey.email %>
 </p>
-<p>
-  <strong>Normalized Score:</strong>
-  <%=h @survey.normalized_score %>
-  <%# todo: helper functions / or use the class out there %>
-</p>
 
 <div class="chart">
   <img src="http://chart.apis.google.com/chart?chs=220x115&chf=bg,s,272830&chco=771111,444411,117711,114444,111177&cht=gom&chl=You&chd=t:<%=h @survey.normalized_score %>" border=0 />
 </div>
 
 <p>
+  <strong>Normalized Score:</strong>
+  <%=h @survey.normalized_score %>
+  <%# todo: helper functions / or use the class out there %>
+</p>
+<p><small>Your Normalized Score represents your relational intelligence measured on a scale from 1 to 100.
+This number is an absolute rating and has no correlation to the general population.</small></p>
+
+<p>
   <strong>Standardized RQ:</strong>
   <%=h @survey.std_rq %>
 </p>
+<p><small>Your Standardized RQ is a rough approximation of what your score might be if this assessment were
+scored like a standard IQ test.  A score of 100 represents an average person on this scale</small></p>
+
+<!-- Categories -->
+<% cs = @survey.category_scores %>
+<div class="chart">
+  <%# This is what happens when a perl programmer finally learns ruby %>
+  <img src="http://chart.apis.google.com/chart?chs=500x150&chf=bg,s,272830&chco=ccccbb,994433,553388,998833,449955,0c0c33,dd6633&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h ( (Category.all.sort { |x,y| x.id <=> y.id } ).collect { |x| x.title } ).join("|") %>" border=0 /> 
+</div>
+
+<p>
+  <strong>Category Breakdown</strong>
+</p>
+<p><small>The chart above shows how well your relational weaknesses fit against some stereotypical 
+scenarios painted in the book.  It might make sense to focus on the chapters that deal with the issues
+identified here most strongly.</small></p>
+
+<!-- Age Scatter (tba) -->
 
 <%
   # scatter_str = "";
@@ -41,9 +64,10 @@
 
 
 
-
+<!--
 <p>
   <%= link_to "Edit", edit_survey_path(@survey) %> |
   <%= link_to "Destroy", @survey, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", surveys_path %>
 </p>
+-->

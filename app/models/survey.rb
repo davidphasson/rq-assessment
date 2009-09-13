@@ -48,6 +48,26 @@ class Survey < ActiveRecord::Base
     end
     return plot
   end
+
+  def category_scores
+    # Indexes by category IDs (0 will be nil)
+    a = Array.new
+
+    # Make sure to waste a lot of compute power
+    Category.all.each do |c|
+      total = 0;
+      score = 0;
+      self.responses.each do |r|
+        if(r.question.category.id == c.id)
+          score += r.value
+          total += 10
+        end
+      end
+      a[c.id] = ( (score.to_f/total.to_f)*100 ).to_i
+    end
+
+    return a
+  end
         
 
 end
