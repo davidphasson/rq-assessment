@@ -1,5 +1,5 @@
 body {
-  background-color: #333333;
+  background-color: #303030;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   color: #a1a1a1;
@@ -22,7 +22,7 @@ a {
 #container {
   width: 75%;
   margin: 0 auto;
-  background-color: #343434;
+  background-color: #272830;
   padding: 20px 40px;
   border: solid 1px #a1a1a1;
   margin-top: 20px;
@@ -79,4 +79,36 @@ a {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: disc;
+}
+
+/* Widgets */
+.slider {
+  width: 500px;
+  margin-left: 100px;
+  margin-right: 100px;
+  height: 20px;
+}
+
+.right-label {
+  font-size: 0.8em;
+  float: right;
+  padding: 0px 0px 0px 10px;
+  width: 90px;
+  height: 20px;
+}
+
+.left-label {
+  font-size: 0.8em;
+  float: left;
+  padding: 0px 0px 0px 0px;
+  width: 90px;
+  height: 20px;
+}
+
+/* Encapsulates labels and slider */
+.slide {
+  width: 700px;
+  height: 20px;
+  margin: 10px;
+  padding-top: 10px;
 }
