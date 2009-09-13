@@ -12,6 +12,8 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </p>
+
+  <!--
   <p>
     <%= f.label :total_score %><br />
     <%= f.text_field :total_score %>
@@ -20,13 +22,30 @@
     <%= f.label :rq_score %><br />
     <%= f.text_field :rq_score %>
   </p>
+  -->
 
   <%# todo: paginate %>
 
+  <p>&nbsp;</p>
+  <hr />
+  <p>&nbsp;</p>
+
   <% f.fields_for :responses do |r| %>
     <%# Assemble response form from properties of the associated question %>
-  	<%= r.label :value r.object.question.text %><br />
-	<%# todo: jQueryUI slider %>
+  	<%= r.label :value, r.object.question.text %><br />
+	<%# todo: randomize directions %>
+	<div class="slide">
+		<div align="left" class="left-label">
+			<%= r.object.question.lower_title %>
+		</div>
+		<div align="right" class="right-label">
+			<%= r.object.question.upper_title %>
+		</div>
+		<div class="slider" id="slider_<%= r.object.question.id %>"></div>
+	</div>
+	<script type="text/javascript">
+		$("#slider_<%= r.object.question.id %>").slider( { max: 10, min: 0, value: <%= r.object.value %> } );
+	</script>
 	<%= r.select :value, 1..10 %>
 	<%= r.hidden_field :question_id, :value => r.object.question.id %>
 	<br /><br />
