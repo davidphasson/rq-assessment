@@ -35,7 +35,7 @@ scored like a standard IQ test.  A score of 100 represents an average person on 
 <% cs = @survey.category_scores %>
 <div class="chart">
   <%# This is what happens when a perl programmer finally learns ruby %>
-  <img src="http://chart.apis.google.com/chart?chs=500x150&chf=bg,s,272830&chco=ccccbb,994433,553388,998833,449955,0c0c33,dd6633&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h ( (Category.all.sort { |x,y| x.id <=> y.id } ).collect { |x| x.title } ).join("|") %>" border=0 /> 
+  <img src="http://chart.apis.google.com/chart?chs=500x150&chxt=y&chf=bg,s,272830&chco=ccccbb|994433|553388|998833|449955|0c0c33|dd6633&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h ( (Category.all.sort { |x,y| x.id <=> y.id } ).collect { |x| x.title } ).join("|") %>" border=0 /> 
 </div>
 
 <p>
