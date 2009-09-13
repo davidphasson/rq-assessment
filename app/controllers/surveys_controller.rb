@@ -1,10 +1,13 @@
 class SurveysController < ApplicationController
+  # Rudimentary access control
+  before_filter :authenticate, :only => [:update, :destroy, :index, :edit]
+  before_filter :find_survey, :only => %w(show edit update destroy)
+
   def index
     @surveys = Survey.all
   end
   
   def show
-    @survey = Survey.find(params[:id])
   end
   
   def new
@@ -25,11 +28,9 @@ class SurveysController < ApplicationController
   end
   
   def edit
-    @survey = Survey.find(params[:id])
   end
   
   def update
-    @survey = Survey.find(params[:id])
     if @survey.update_attributes(params[:survey])
       flash[:notice] = "Successfully updated survey."
       redirect_to @survey
@@ -39,9 +40,25 @@ class SurveysController < ApplicationController
   end
   
   def destroy
-    @survey = Survey.find(params[:id])
     @survey.destroy
     flash[:notice] = "Successfully destroyed survey."
     redirect_to surveys_url
   end
+
+  protected
+
+  def find_survey
+    @survey = Survey.find(params[:id])
+  end
+
+  private
+
+  # todo: move to app_config.yml
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "admin" && password == "ri_test"
+    end
+  end
+
+
 end
