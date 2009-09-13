@@ -32,10 +32,16 @@ This number is an absolute rating and has no correlation to the general populati
 scored like a standard IQ test.  A score of 100 represents an average person on this scale</small></p>
 
 <!-- Categories -->
-<% cs = @survey.category_scores %>
+<% 
+  # This is what happens when a perl programmer finally learns ruby
+  cs = @survey.category_scores 
+  cs_colors = %w(CCCCBB 994433 553388 998833 449955 0C0C33 DD6633)
+  cs_legend = ( (Category.all.sort { |x,y| x.id <=> y.id } ).collect { |x| x.title } )
+
+%>
+
 <div class="chart">
-  <%# This is what happens when a perl programmer finally learns ruby %>
-  <img src="http://chart.apis.google.com/chart?chs=500x150&chxt=y&chf=bg,s,272830&chco=ccccbb|994433|553388|998833|449955|0c0c33|dd6633&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h ( (Category.all.sort { |x,y| x.id <=> y.id } ).collect { |x| x.title } ).join("|") %>" border=0 /> 
+  <img src="http://chart.apis.google.com/chart?chs=500x150&chxt=y&chf=bg,s,272830&chco=<%= cs_colors.join("|") %>&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h cs_legend.join("|") %>" border=0 /> 
 </div>
 
 <p>
