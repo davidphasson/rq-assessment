@@ -1,13 +1,15 @@
 class SurveysController < ApplicationController
   # Rudimentary access control
   before_filter :authenticate, :only => [:update, :destroy, :index, :edit]
-  before_filter :find_survey, :only => %w(show edit update destroy)
+  before_filter :find_survey, :only => %w(update destroy)
 
   def index
     @surveys = Survey.all
   end
   
   def show
+    # Preload all associations
+    @survey = Survey.find(params[:id], :include => [:responses => [:question => :category]])
   end
   
   def new
@@ -29,6 +31,7 @@ class SurveysController < ApplicationController
   end
   
   def edit
+    @survey = Survey.find(params[:id], :include => [:responses => :question])
   end
   
   def update
