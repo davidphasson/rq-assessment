@@ -24,6 +24,7 @@ class SurveysController < ApplicationController
     if @survey.save
       # This is showing up for a person that just took it, silly
       # flash[:notice] = "Successfully created survey."
+      Mailman.deliver_survey_completed @survey
       redirect_to @survey
     else
       render :action => 'new'
