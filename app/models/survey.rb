@@ -11,6 +11,10 @@ class Survey < ActiveRecord::Base
 
   # Straight scale percentage
   def normalized_score
+    if self.total_score.present?
+      return self.total_score
+    end
+
     total = 0;
     possible = 0;
     self.responses.each do |r|
@@ -28,6 +32,10 @@ class Survey < ActiveRecord::Base
 
   # Normalized IQ style score (100 mean/15 stddev)
   def std_rq
+    if self.rq_score.present?
+      return self.rq_score
+    end
+
     # Guesses for averages for now:
     source_mean = 50.0;
     source_stddev = 10.0;
