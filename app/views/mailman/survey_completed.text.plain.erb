@@ -1,0 +1,18 @@
+<%=h @survey.first_name %> <%=h @survey.last_name %>,
+
+Thanks for taking the Relational Intelligence Assessment.
+
+Your RQ Score is <%=h @survey.normalized_score %>.
+
+Your Normalized Score represents your relational intelligence measured on a scale from 1 to 100.
+This number is an absolute rating and has no correlation to the general population.
+
+You can view your complete report again by going to this URL:
+<% link_to @survey %>
+
+Thanks,
+
+The Relational Intelligence Team
+www.relationalintelligence.com
+
+
