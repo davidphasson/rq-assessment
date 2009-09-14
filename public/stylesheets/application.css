@@ -1,5 +1,5 @@
 body {
-  background-color: #303030;
+  background-color: #101010;
   font-family: Verdana, Helvetica, Arial;
   font-size: 14px;
   color: #a1a1a1;
@@ -22,7 +22,7 @@ a {
 #container {
   width: 75%;
   margin: 0 auto;
-  background-color: #272830;
+  background-color: #171717;
   padding: 20px 40px;
   border: solid 1px #a1a1a1;
   margin-top: 20px;
