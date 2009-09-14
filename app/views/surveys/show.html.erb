@@ -13,15 +13,15 @@
 </p>
 
 <div class="chart">
-  <img src="http://chart.apis.google.com/chart?chs=220x115&chf=bg,s,272830&chco=771111,444411,117711,114444,111177&cht=gom&chl=You&chd=t:<%=h @survey.normalized_score %>" border=0 />
+  <img class="chart" src="http://chart.apis.google.com/chart?chs=220x100&chf=bg,s,333333&chco=771111,444411,117711,114444,111177&cht=gom&chl=You&chd=t:<%=h @survey.normalized_score %>" />
 </div>
 
 <p>
-  <strong>Normalized Score:</strong>
+  <strong>RQ Score:</strong>
   <%=h @survey.normalized_score %>
   <%# todo: helper functions / or use the class out there %>
 </p>
-<p><small>Your Normalized Score represents your relational intelligence measured on a scale from 1 to 100.
+<p><small>Your Normalized RQ Score represents your relational intelligence measured on a scale from 1 to 100.
 This number is an absolute rating and has no correlation to the general population.</small></p>
 
 <!--
@@ -43,7 +43,7 @@ scored like a standard IQ test.  A score of 100 represents an average person on 
 %>
 
 <div class="chart">
-  <img src="http://chart.apis.google.com/chart?chs=500x150&chxt=y&chf=bg,s,272830&chco=<%= cs_colors.join("|") %>&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h cs_legend.join("|") %>" border=0 /> 
+  <img class="chart" src="http://chart.apis.google.com/chart?chs=500x150&chxt=y&chf=bg,s,333333&chco=<%= cs_colors.join("|") %>&cht=bvs&chd=t:<%= cs.compact.join(",") %>&chdl=<%=h cs_legend.join("|") %>" /> 
 </div>
 
 <p>
