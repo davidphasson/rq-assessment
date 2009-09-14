@@ -146,3 +146,11 @@ div.footer {
 	font-size: 0.7em;
 }
 
+img.chart {
+  border: 1px solid #999999;
+  padding: 5px;
+  background-color: #333333;
+}
+
+div.chart {
+}
