@@ -105,14 +105,14 @@ namespace :db do
 	# The Energy Carrier
 		[
 			:text => "Do you find yourself fully engaged in the present interactions and moments that you’re in or do you often find yourself preoccupied with other things?",
-			:upper_title => "All the time",
-			:lower_title => "Never",
+			:upper_title => "Preoccupied",
+			:lower_title => "Engaged",
 			:category_title => "The Energy Carrier"
 		],
 		[
 			:text => "Would people who interact with you in a variety of contexts describe you more as focused and attentive OR more as distracted and preoccupied?",
-			:upper_title => "All the time",
-			:lower_title => "Never",
+			:upper_title => "Preoccupied",
+			:lower_title => "Attentive",
 			:category_title => "The Energy Carrier"
 		],
 		[
@@ -209,15 +209,15 @@ namespace :db do
 			:category_title => "The Conversational Futurist"
 		],
 		[
-			:text => "In dialoguing with others, do you find yourself articulating what’s already been said, OR do you find yourself striving to say something new that changes the direction of the conversation and moves it forward?",
-			:upper_title => "All the time",
-			:lower_title => "Never",
+			:text => "In dialoguing with others, do you find yourself articulating what’s already been said, therefore keeping the conversation neutral OR do you find yourself striving to say something new that changes the direction of the conversation and moves it forward?",
+			:upper_title => "Keeping neutral",
+			:lower_title => "Moving forward",
 			:category_title => "The Conversational Futurist"
 		],
 		[
 			:text => "When in dialogue, do you see your role more as an agent of change OR do you see your role more as being polite and agreeable?",
-			:upper_title => "All the time",
-			:lower_title => "Never",
+			:upper_title => "Agent of change",
+			:lower_title => "Polite/Agreeable",
 			:category_title => "The Conversational Futurist"
 		],
 		[
@@ -273,8 +273,8 @@ namespace :db do
 		],
 		[
 			:text => "Do the majority of the people on your teams (or the employees who work for you) demonstrate loyalty and support OR are they disconnected and unmotivated?",
-			:upper_title => "All the time",
-			:lower_title => "Never",
+			:upper_title => "Disconnected/Unmotivated",
+			:lower_title => "Loyalty/Support",
 			:category_title => "The Likeable Hero"
 		],
 		[
