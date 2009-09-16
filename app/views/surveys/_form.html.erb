@@ -53,13 +53,13 @@
 	  <div align="right" class="right-label">
 		<a href="#" onClick="next_tab();">[Next]</a>
 	  </div>
-	  <div class="progress" id="progress_page_<%= page %>"</div>
+	  <div class="progress" id="progress_page_<%= page %>"> </div>
 	  <script type="text/javascript">
 		  $("#progress_page_<%= page %>").progressbar({ 
 			  value: ((<%= page %>/9)*100)
 			  });
 	  </script>
-    </div>
+    	</div>
 	<p>&nbsp;</p>
 	<!-- End Progress/Nav -->
 
@@ -110,7 +110,7 @@
 	  </div>
 	  <div class="progress" id="progress_bottom"</div>
 	  	  <!-- No progress bar for now -->
-    </div>
+        </div>
 	<!-- End Progress/Nav -->
 
   </div>
