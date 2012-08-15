@@ -4,4 +4,5 @@ tmp/**/*
 *.swp
 *.swo
 config/database.yml
+config/config.yml
 db/*.sqlite3
