@@ -8,17 +8,21 @@
     <th>Total Score</th>
     <th>Rq Score</th>
   </tr>
-  <% for survey in @surveys %>
-    <tr>
-      <td><%=h survey.first_name %></td>
-      <td><%=h survey.last_name %></td>
-      <td><%=h survey.email %></td>
-      <td><%=h survey.total_score %></td>
-      <td><%=h survey.rq_score %></td>
-      <td><%= link_to "Show", survey %></td>
-      <td><%= link_to "Edit", edit_survey_path(survey) %></td>
-      <td><%= link_to "Destroy", survey, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
+  <% if @surveys.nil? %>
+	  <tr><td>No Surveys Found</td></tr>
+  <% else %>
+    <% for survey in @surveys %>
+      <tr>
+        <td><%=h survey.first_name %></td>
+        <td><%=h survey.last_name %></td>
+        <td><%=h survey.email %></td>
+        <td><%=h survey.total_score %></td>
+        <td><%=h survey.rq_score %></td>
+        <td><%= link_to "Show", survey %></td>
+        <td><%= link_to "Edit", edit_survey_path(survey) %></td>
+        <td><%= link_to "Destroy", survey, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
   <% end %>
 </table>
 
