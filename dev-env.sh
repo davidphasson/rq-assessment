@@ -1,0 +1,2 @@
+export RAILS_GEM_VERSION=2.3.11
+export RAKE_GEM_VERSION=0.8.7
