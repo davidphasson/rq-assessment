@@ -1,5 +1,5 @@
 <% title "Surveys" %>
-<p><%= link_to "Download CSV", :controller => 'surveys', :action => 'csv' %> | <%= link_to "Download CSV (e-mails only)", :controller => 'surveys', :action => 'email' %></p>
+<p>Download CSVs: <%= link_to "surveys", :controller => 'surveys', :action => 'csv' %> | <%= link_to "e-mails", :controller => 'surveys', :action => 'email' %></p>
 
 <%= will_paginate(@surveys) %>
 <table>
@@ -22,9 +22,9 @@
         <td><%=h survey.email %></td>
         <td><%=h survey.total_score %></td>
         <td><%=h survey.rq_score %></td>
-        <td><%= link_to "Show", survey %></td>
-        <td><%= link_to "Edit", edit_survey_path(survey) %></td>
-        <td><%= link_to "Destroy", survey, :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to "View", survey %></td>
+        <td><%= link_to "Adjust", edit_survey_path(survey), :confirm => 'Are you sure you want to modify this survey?' %></td>
+        <td><%= link_to "Delete", survey, :confirm => 'Are you sure you want to delete this survey?', :method => :delete %></td>
       </tr>
     <% end %>
   <% end %>
