@@ -1,11 +1,10 @@
 development:
-	perform_authentication: false
+  perform_authentication: false
 
 test:
-	perform_authentication: false
+  perform_authentication: false
 
 production:
-	perform_authentication: true
-	username: admin
-	password: relationality
-
+  perform_authentication: true
+  username: admin
+  password: relationality
