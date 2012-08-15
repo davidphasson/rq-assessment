@@ -1,12 +1,44 @@
 class SurveysController < ApplicationController
   # Rudimentary access control
-  before_filter :authenticate, :only => [:update, :destroy, :index, :edit]
+  before_filter :authenticate, :only => [:update, :destroy, :index, :edit, :csv, :email]
   before_filter :find_survey, :only => %w(update destroy)
 
+	# Should I need this?
+  require 'fastercsv'
+
   def index
-    @surveys = Survey.all
+	  @surveys = Survey.paginate(:page => params[:page])
   end
-  
+
+  def csv
+		@surveys = Survey.all
+
+		csv_string = FasterCSV.generate do |csv| 
+		  csv <<  [ "date", "first" , "last" , "email" , "total_score" , "rq_score" ]
+	    @surveys.each do |survey|
+	  	  csv << [ survey.created_at.strftime("%B %d %Y"), survey.first_name ,survey.last_name, survey.email, survey.total_score, survey.rq_score ]
+		  end
+		end 
+
+    send_data csv_string, :type => "text/plain", 
+							 :filename => "rq-surveys-#{Time.now.strftime("%Y%m%d")}.csv",
+							 :disposition => 'attachment'
+  end
+
+	def email
+	  @surveys = Survey.find(:all, :group => :email)
+
+		csv_string = FasterCSV.generate do |csv| 
+	    @surveys.each do |survey|
+	  	  csv << [ survey.email ]
+		  end
+		end
+
+    send_data csv_string, :type => "text/plain", 
+							 :filename => "rq-emails-#{Time.now.strftime("%Y%m%d")}.csv",
+							 :disposition => 'attachment'
+  end 
+
   def show
     # Preload all associations
     @survey = Survey.find(params[:id], :include => [:responses => [:question => :category]])

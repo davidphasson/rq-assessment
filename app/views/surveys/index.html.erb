@@ -1,7 +1,10 @@
 <% title "Surveys" %>
+<p><%= link_to "Download CSV", :controller => 'surveys', :action => 'csv' %> | <%= link_to "Download CSV (e-mails only)", :controller => 'surveys', :action => 'email' %></p>
 
+<%= will_paginate(@surveys) %>
 <table>
   <tr>
+    <th>Date Taken</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
@@ -13,6 +16,7 @@
   <% else %>
     <% for survey in @surveys %>
       <tr>
+	    <td><%= survey.created_at.strftime("%b %d %Y") %></td>
         <td><%=h survey.first_name %></td>
         <td><%=h survey.last_name %></td>
         <td><%=h survey.email %></td>

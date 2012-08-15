@@ -1,4 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
+  map.connect '/surveys/csv', :controller => 'surveys', :action => 'csv'
+  map.connect '/surveys/email', :controller => 'surveys', :action => 'email'
+
   map.resources :categories
   map.resources :questions
   map.resources :surveys
