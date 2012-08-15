@@ -1,0 +1,6 @@
+Rails 2.3.4 -> 2.3.11
+Rake 0.8.7
+Ruby 1.8.7
+
+Gems:
+sqlite3-ruby
